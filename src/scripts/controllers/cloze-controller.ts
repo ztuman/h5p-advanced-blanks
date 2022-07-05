@@ -11,6 +11,7 @@ import { Blank } from "../models/blank";
 import { Correctness } from '../models/answer';
 
 import * as RactiveEventsKeys from '../../lib/ractive-events-keys';
+import Ractive from "ractive";
 
 interface ScoreChanged {
   (score: number, maxScore: number): void;

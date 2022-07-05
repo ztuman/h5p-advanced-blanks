@@ -3,9 +3,12 @@ var nodeEnv = process.env.NODE_ENV || 'development';
 var isDev = (nodeEnv !== 'production');
 
 var config = {
+  mode: nodeEnv,
+  context: path.resolve(__dirname, 'src'),
   entry: {
-    dist: './src/entries/dist.ts'
+    dist: './entries/dist.ts'
   },
+  devtool: isDev ? 'inline-source-map' : undefined,
   output: {
     path: path.resolve(__dirname, 'dist'),
     filename: '[name].js'
@@ -40,11 +43,10 @@ var config = {
   },
   resolve: {
     extensions: [".tsx", ".ts", ".js", ".ractive.html"]
+  },
+  stats: {
+    errorDetails: true
   }
 };
-
-if (isDev) {
-  config.devtool = 'inline-source-map';
-}
 
 module.exports = config;
