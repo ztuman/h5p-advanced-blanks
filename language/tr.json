@@ -1,0 +1,294 @@
+{
+  "semantics": [
+    {
+      "label": "Ortam",
+      "fields": [
+        {
+          "label": "Tür",
+          "description": "Sorunun üzerinde görüntülenecek isteğe bağlı ortam."
+        },
+        {
+          "label": "Soru görüntüsü için görüntü yakınlaştırmayı devre dışı bırake"
+        }
+      ]
+    },
+    {
+      "label": "Boş içerik",
+      "fields": [
+        {
+          "label": "Görev tanımı",
+          "default": "Eksik kelimeleri doldurun.",
+          "description": "Kullanıcıya bu görevi nasıl yapacağını anlatan bir kılavuz."
+        },
+        {
+          "label": "Boşluklu metin",
+          "important": {
+            "description": "<ul><li>Boşluklar __________ (üç veya daha fazla alt çizgi) ile işaretlenmelidir.</li><li>Çözümleri metnin içine koymayın.</li></ul>",
+            "example": "Ben _________ Norveç'i ziyaret etmek istiyordum."
+          }
+        },
+        {
+          "label": "Metinde kullanılan boşluklart",
+          "entity": "boşluk",
+          "widgets": [
+            {
+              "label": "Varsayılan"
+            }
+          ],
+          "field": {
+            "label": "Boş",
+            "fields": [
+              {
+                "label": "Doğru cevap",
+                "description": "Alternatif cevapları eğik çizgi (/) ile ayırabilirsiniz."
+              },
+              {
+                "label": "İpucu"
+              },
+              {
+                "label": "Yanlış cevaplar",
+                "entity": "Yanlış cevaplar",
+                "field": {
+                  "label": "Yanlış cevaplar",
+                  "description": "YAlternatif cevapları eğik çizgi (/) ile ayırabilirsiniz.",
+                  "fields": [
+                    {
+                      "label": "Yanlış cevap metni"
+                    },
+                    {
+                      "label": "Geriblidirim",
+                      "description": "Geri bildirim, kullanıcının doğru cevabı bulmasına yardımcı olmalı ve ideal olarak kullanıcının girdiği cevaba göre uyarlanmalıdır."
+                    },
+                    {
+                      "label": "Geri bildirim gösterildiğinde metinde vurguyu göster",
+                      "description": "Vurgu olarak işaretlemek için bir metin parçasından önce ve sonra !! koyun. (örn. Bu !!bir vurgu!!)"
+                    },
+                    {
+                      "label": "Boşluğa göre vurgu konumu:",
+                      "options": [
+                        {
+                          "label": "- 1 (boşluktan hemen önce)"
+                        },
+                        {
+                          "label": "- 2 (boşluktan önce iki önemli nokta)"
+                        },
+                        {
+                          "label": "- 3 (boşluktan önce üç vurgu)"
+                        },
+                        {
+                          "label": "+ 1 (boşluktan hemen sonra)"
+                        },
+                        {
+                          "label": "+ 2 (boşluktan sonra iki vurgu)"
+                        },
+                        {
+                          "label": "+ 3 (boşluktan sonra üç vurgu)"
+                        }
+                      ]
+                    }
+                  ]
+                }
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "label": "Parçalar",
+      "fields": [
+        {
+          "label": "Parç listesi",
+          "description": "Parçalar, içine @snippetname eklenerek geri bildirim metinlerinde yeniden kullanılabilen metinlerdir.",
+          "entity": "snippet",
+          "field": {
+            "label": "Parça",
+            "fields": [
+              {
+                "label": "Adı",
+                "description": "Parça adı için yalnızca harf ve rakam kullanabilirsiniz."
+              },
+              {
+                "label": "Metin"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "label": "Genel Geri Bildirim",
+      "fields": [
+        {
+          "widgets": [
+            {
+              "label": "Geçerli"
+            }
+          ],
+          "label": "Herhangi bir puan aralığı için özel geri bildirim tanımlayın",
+          "description": "İhtiyaç duyduğunuz kadar aralık eklemek için \“Aralık ekle\” düğmesine tıklayın. Örnek: %0-20 Düşük Puan, %21-91 Ortalama Puan, %91-100 Yüksek Puan!",
+          "entity": "aralık",
+          "field": {
+            "fields": [
+              {
+                "label": "Puan Aralığı"
+              },
+              {},
+              {
+                "label": "Tanımlanan puan aralığı için geri bildirim",
+                "placeholder": "Geri bildirimi doldurun"
+              }
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "label": "Davranış ayarları",
+      "description": "Bu seçenekler görevin nasıl davranacağını kontrol etmenizi sağlar.",
+      "fields": [
+        {
+          "label": "Cevap modu",
+          "description": "Kullanıcının ne şekilde cevap verdiğini gösterir.",
+          "options": [
+            {
+              "label": "Kullanıcılar seçenekler arasından seçim yapar."
+            },
+            {
+              "label": "Kullanıcılar cevapları yazar."
+            }
+          ]
+        },
+        {
+          "label": "Seçim için sunulan alternatifler",
+          "options": [
+            {
+              "label": "Boşluk için girilen yanlış cevaplar"
+            },
+            {
+              "label": "Diğer tüm boşlukların doğru cevapları"
+            }
+          ]
+        },
+        {
+          "label": "Seçim için sunulan diğer boşlukların maksimum alternatif sayısı",
+          "description": "Limit belirlememek için 0 girin."
+        },
+        {
+          "label": "Kullanıcı yazım hatası yaptığında davranış",
+          "options": [
+            {
+              "label": "Doğru cevap olarak kabul edin"
+            },
+            {
+              "label": "Kullanıcıyı hata hakkında uyarın"
+            },
+            {
+              "label": "Bunu sıradan bir hata olarak düşünün"
+            }
+          ]
+        },
+        {
+          "label": "Harfe Duyarlı",
+          "description": "Etkinleştirilirse, çözümden farklı büyük harf kullanımı bir hata olarak kabul edilir."
+        },
+        {
+          "label": "Girişten sonra cevapları otomatik olarak kontrol et"
+        },
+        {
+          "label": "Etkinleştir \"Çözümleri göster\" düğmesi"
+        },
+        {
+          "label": "Çözümün görüntülenebilmesi için tüm alanların cevaplanması gerekli olsun"
+        },
+        {
+          "label": "Etkinleştir \"Yeniden Dene\""
+        },
+        {
+          "label": "Etkinleştir \"Kontrol Et\" düğmesi"
+        },
+        {
+          "label": "\"Check\" üzerinde onay iletişim kutusunu göster""
+        },
+        {
+          "label": "Yeniden Dene\'de onay iletişim kutusunu göster""
+        }
+      ]
+    },
+    {
+      "label": "\"Çözümleri göster\" düğmesi için metin",
+      "default": "Çözümü göster"
+    },
+    {
+      "label": ""Yeniden Dene" düğmesi için metin",
+      "default": "Yeniden Dene"
+    },
+    {
+      "label": "\"Kontrol Et\" düğmesi için metin",
+      "default": "Kontrol Et"
+    },
+    {
+      "label": "\"Gönder\" düğmesi için metin",
+      "default": "Gönder"
+    },
+    {
+      "label": ""Doldurulmadı" mesajı için metin",
+      "default": "Çözümü görüntülemek için lütfen tüm boşlukları doldurun"
+    },
+    {
+      "label": "İpucu simgesi etiketi",
+      "default": "İpucu"
+    },
+    {
+      "label": "Spelling mistake warning",
+      "description": "Bu, kullanıcılara bir yazım hatası yaptıklarında gösterilen mesajdır. Neyi yanlış yaptıklarını göstermek için @mistake ekleyin.",
+      "default": "Yazımını kontrol et: @mistake"
+    },
+    {
+      "label": "Onay iletişim kutusunu kontrol edin",
+      "fields": [
+        {
+          "label": "Başlık metni",
+          "default": "Bitir?"
+        },
+        {
+          "label": "Göde metni",
+          "default": "Bitirmek istediğine emin misin?"
+        },
+        {
+          "label": "İptal düğmesi etiketi",
+          "default": "İptal"
+        },
+        {
+          "label": "Onayla düğmesi etiketi",
+          "default": "Bitir"
+        }
+      ]
+    },
+    {
+      "label": "Yeniden deneme onay iletişim kutusu",
+      "fields": [
+        {
+          "label": "Başlık metni",
+          "default": "Tekrar deneyelim mi?"
+        },
+        {
+          "label": "Gövde Metni",
+          "default": "Yeniden denemek istediğinizden emin misiniz?"
+        },
+        {
+          "label": "İptal düğmesi etiketi",
+          "default": "İptal"
+        },
+        {
+          "label": "Onayla düğmesi etiketi",
+          "default": "Onayla"
+        }
+      ]
+    },
+    {
+      "label": "Okuma cihazı kullananlar için puan çubuğunun metin olarak gösterimi",
+      "default": "Toplam puandan :num aldınız"
+    }
+  ]
+}
